@@ -48,9 +48,9 @@ public class BezeirCurve implements FollowableGridBased, Followable{
         if (last.getAngle() != target.getAngle() && last.getSlope() == target.getSlope())
             System.out.println("I can't make a J turns");//this is a curve without enough information to make it smooth
         else if (last.getAngle() == target.getAngle()){
-            double avgX = MathCont.avg(last.getX(),target.getX());
-            double avgY = MathCont.avg(last.getY(),target.getY());
-            double intAngle = MathCont.avg(last.getAngle(),target.getAngle())+90.;
+            double avgX = AdvMath.avg(last.getX(),target.getX());
+            double avgY = AdvMath.avg(last.getY(),target.getY());
+            double intAngle = AdvMath.avg(last.getAngle(),target.getAngle())+90.;
             Line tempL = new Line(avgX, avgY, intAngle);
             temp.add(last.findInterctLine(tempL));
             temp.add(target.findInterctLine(tempL));
@@ -94,8 +94,8 @@ public class BezeirCurve implements FollowableGridBased, Followable{
             double pointX = 0;
             double pointY = 0;
             for(int i = 0;i <pos.size();i++){
-                pointX += MathCont.choose(n,i)*Math.pow(1-t,n-i)*Math.pow(t,i)*pos.get(i).getX();
-                pointY += MathCont.choose(n,i)*Math.pow(1-t,n-i)*Math.pow(t,i)*pos.get(i).getY();
+                pointX += AdvMath.choose(n,i)*Math.pow(1-t,n-i)*Math.pow(t,i)*pos.get(i).getX();
+                pointY += AdvMath.choose(n,i)*Math.pow(1-t,n-i)*Math.pow(t,i)*pos.get(i).getY();
             }
             double angle,deltaX, deltaY, deltaD, totalD;
             deltaX = pointX-portion.get(portion.size()-1).getX();
