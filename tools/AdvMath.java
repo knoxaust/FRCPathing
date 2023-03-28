@@ -4,7 +4,7 @@ package tools;
 /*
 This is a continuation of the matt class to add factorials and choose functions
 */
-public class MathCont {
+public class AdvMath {
     
     public static int factorial(int num){
         if (num <= 1)
